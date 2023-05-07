@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cstc1y05ysdec"]
+
+[ext_resource type="Script" path="res://scenes/basic_enemy/enemy_octo.gd" id="1_jro70"]
+[ext_resource type="Texture2D" uid="uid://bx7a343m8fqy4" path="res://scenes/basic_enemy/Octacro.png" id="2_1cmby"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcvfo"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtc2n"]
+radius = 9.0
+
+[node name="enemey_lowo" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_jro70")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3125, 0.300781)
+texture = ExtResource("2_1cmby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mcvfo")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -1)
+shape = SubResource("CircleShape2D_gtc2n")
